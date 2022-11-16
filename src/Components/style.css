@@ -1,7 +1,22 @@
-
+*{
+    font-family: 'Trebuchet MS';
+}
+body{
+    background-color: rgb(223, 223, 223);
+}
 #search{
     width: 600px;
     margin: 0  auto;
     margin-top:30px;
+    color: rgb(38, 84, 175);
 
 }
+
+#add-flex{
+    justify-content: space-evenly !important;
+}
+
+#head-text{
+    display: inline-block !important;
+}
+

@@ -37,13 +37,13 @@ import {
                 <MDBNavbarLink aria-current='page' href='#'>Home</MDBNavbarLink>
               </MDBNavbarItem>
               <MDBNavbarItem>
-                <MDBNavbarLink href='#'>Features</MDBNavbarLink>
-              </MDBNavbarItem>
-              <MDBNavbarItem>
-                <MDBNavbarLink href='#'>Pricing</MDBNavbarLink>
+                {/* <MDBNavbarLink href='forecast/:name'>Forecast</MDBNavbarLink> */}
               </MDBNavbarItem>
               <MDBNavbarItem>
                 <MDBNavbarLink href='#'>About</MDBNavbarLink>
+              </MDBNavbarItem>
+              <MDBNavbarItem>
+                <MDBNavbarLink href='#'>Contact</MDBNavbarLink>
               </MDBNavbarItem>
             </MDBNavbarNav>
           </MDBCollapse>
