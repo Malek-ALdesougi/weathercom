@@ -58,7 +58,7 @@ const CurrentWeather = (props) => {
 
         <>
 
-            <section className="vh-50 mt-5" style={{ backgroundColor: " rgb(223, 223, 223)" }}>
+            <section className="vh-50 mt-5">
                 <MDBContainer className="h-100">
                     <MDBRow className="justify-content-center align-items-center h-100">
                         <MDBCol md="8" lg="6" xl="4">
@@ -127,7 +127,7 @@ const CurrentWeather = (props) => {
                                         </div>
                                     </div>
                                 </MDBCardBody>
-                                <MDBBtn tag="a" href={`forecast/${cityData.name}`} className="stretched-link mt-3 p-2">Weather for 10 days</MDBBtn>
+                                <MDBBtn tag="a" href={`forecast/${cityData.name}`} className="stretched-link mt-3 p-2"><MDBTypography className="d-inline fs-6">Weather for 7 days</MDBTypography></MDBBtn>
                             </MDBCard>
                         </MDBCol>
                     </MDBRow>

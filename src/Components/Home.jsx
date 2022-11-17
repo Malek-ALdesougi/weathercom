@@ -22,13 +22,13 @@ const Home = () => {
     }
 
     return (
-        <>
+        <div>
             <h1>HOme page</h1>
             <CityName.Provider value={searchData}>
                 <Search onSearchChange={handleonSearchChange} />
                 <CurrentWeather country={searchData} />
             </CityName.Provider>
-        </>
+        </div>
     )
 
 }
