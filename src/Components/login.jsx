@@ -5,7 +5,7 @@ import ReactJsAlert from "reactjs-alert"
 
 
 
-const Login = () => {
+const Login = (logStatus) => {
 
     const [userLoginData, setUserLoginData] = useState({
         email: '',
@@ -20,20 +20,25 @@ const Login = () => {
     const handelLogin = (e) => {
         e.preventDefault();
 
-        const localData = JSON.parse(localStorage.getItem('users')) || [];
-        // const users = JSON.parse(localStorage.getItem("users")) || [];
+        const localDataLogin = JSON.parse(localStorage.getItem('users')) ? JSON.parse(localStorage.getItem('users')) : [];
 
-        console.log(localData);
-        // console.log(localData);
-        let isRegistered = localData.map((e) => e.registerEmail === userLoginData.email && e.password === userLoginData.password);
+        //check email and  password are not empty
+        if(userLoginData.email === '' || userLoginData.password === ''){
+            return setStatus(true);
+        }
+        // check email and password are exist 
+        let isRegistered = localDataLogin.find((e) => e.registerEmail === userLoginData.email && e.registerPassword === userLoginData.password)
 
-        if (!isRegistered) {
+        console.log(isRegistered);
+
+        if (isRegistered){
+            console.log('after if its true ');
+            localStorage.setItem('loggedin', true);
+            navigate('/');
+        }else{
+            console.log('its false');
             return setStatus(true)
         }
-
-        localStorage.setItem('loggedin', true);
-
-        navigate('/');
 
         //the best practice for this situation is to let the home page as the default page of the  webiste
 
@@ -85,7 +90,7 @@ const Login = () => {
                             </div>
                         </div>
                         <div className="d-grid">
-                            <button type="submit" className="btn btn-primary mb-5">
+                            <button onClick={() => logStatus} type="submit" className="btn btn-primary mb-5">
                                 Submit
                             </button>
                         </div>

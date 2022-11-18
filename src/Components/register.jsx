@@ -20,13 +20,9 @@ const Register = () => {
     const [type, setType] = useState("error");
     const [title, setTitle] = useState("All fileds are requierd! ");
 
-    const array = [];
-    const user1 = { firstName: 'malek', lastName: 'saleh', registerEmail: 'malek@yahoo.com', registerPassword: '232334' }
-    localStorage.setItem('users', JSON.stringify(array))
+    const array = JSON.parse(localStorage.getItem('users')) || [];
 
-
-    
-    //On submit for the form ------>
+    //On submit for the REGISTER form ------>       
     const handelRegisterSumbit = (e) => {
         e.preventDefault();
 
@@ -35,7 +31,7 @@ const Register = () => {
         }
         //here we need to check the local storage data if exist
         const localData = JSON.parse(localStorage.getItem('users')) || [];
-
+        
         let isExist = localData.find((e) => e.registerEmail === registerInputs.registerEmail)
         if (isExist) {
             return alert('This email is used')
@@ -43,7 +39,7 @@ const Register = () => {
         array.push(registerInputs)
         localStorage.setItem('users', JSON.stringify(array));
 
-        navigate('/about')
+        navigate('/')
 
         return console.log('user registered successfully');
     }

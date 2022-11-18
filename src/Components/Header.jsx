@@ -1,22 +1,25 @@
-import React, { useState } from 'react';
+import React, {useState } from 'react';
 import {
   MDBNavbar,
   MDBContainer,
   MDBIcon,
   MDBNavbarNav,
   MDBNavbarItem,
-  MDBNavbarLink,
   MDBNavbarToggler,
   MDBNavbarBrand,
-  MDBCollapse
+  MDBCollapse,
 } from 'mdb-react-ui-kit';
 import { Link } from 'react-router-dom';
+import LoginButton from './loginButton';
+import LogoutButton from './logoutButton';
 
-function Header() {
+function Header(props) {
   const [showNavColor, setShowNavColor] = useState(false);
-  const [showNavColorSecond, setShowNavColorSecond] = useState(false);
-  const [showNavColorThird, setShowNavColorThird] = useState(false);
+  // const [showNavColorSecond, setShowNavColorSecond] = useState(false);
+  // const [showNavColorThird, setShowNavColorThird] = useState(false);
 
+ console.log(props.userStatus);
+  
   return (
     <>
       <MDBNavbar expand='lg' dark bgColor='primary'>
@@ -49,7 +52,8 @@ function Header() {
 
               <MDBContainer className='d-flex justify-content-end'>
                 <MDBNavbarItem>
-                  <Link to={'register'} className='text-light fs-6 fw-4'><i style={{ letterSpacing: '5px' }} class="fas fa-sign-in-alt">Login</i></Link>
+                  <LoginButton />
+                  <LogoutButton />
                 </MDBNavbarItem>
               </MDBContainer>
             </MDBNavbarNav>
