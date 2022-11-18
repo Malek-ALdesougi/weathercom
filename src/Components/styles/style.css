@@ -3,6 +3,9 @@
 }
 body{
     /* background-color: rgb(187, 31, 31); */
+    background-image: url('https://www.chromethemer.com/download/hd-wallpapers/nepal-3840x2160.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 #search{
     width: 600px;

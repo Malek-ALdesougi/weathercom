@@ -6,6 +6,10 @@ import Home from './Components/Home';
 import Search from './Components/Search';
 import Forecaste from './Components/Forecaste';
 import { useState } from 'react';
+import About from './Components/About';
+import Contact from './Components/contact';
+import Login from './Components/login';
+import Register from './Components/register';
 
 function App() {
 
@@ -16,6 +20,10 @@ function App() {
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path='forecast/:name' element={<Forecaste />} />
+          <Route path='about' element={<About />}/>
+          <Route path='contact' element={<Contact />}/>
+          <Route path='/register' element={<Register />}/>
+          <Route path='login' element={<Login />}/>
         </Routes>
       <Footer />
     </div>

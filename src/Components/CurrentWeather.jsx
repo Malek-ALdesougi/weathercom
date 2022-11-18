@@ -9,7 +9,7 @@ import {
     MDBRow,
     MDBTypography,
 } from "mdb-react-ui-kit";
-import './style.css';
+import '../Components/styles/style.css'
 import axios from "axios";
 
 
@@ -23,31 +23,31 @@ const CurrentWeather = (props) => {
     const [cityData, setCityData] = useState([]);
 
 
-    useEffect(() => {
+    // useEffect(() => {
 
-        axios(`https://api.openweathermap.org/data/2.5/weather?appid=ec6531490be8447c526f8350ffc1e879&q=jordan`)
-            .then(function (response) {
-                console.log(response.data);
-                setCityData(response.data);
-            })
-            .catch(function (error) {
-                console.log(error);
-            });
-    }, [])
+    //     axios(`https://api.openweathermap.org/data/2.5/weather?appid=ec6531490be8447c526f8350ffc1e879&q=jordan`)
+    //         .then(function (response) {
+    //             console.log(response.data);
+    //             setCityData(response.data);
+    //         })
+    //         .catch(function (error) {
+    //             console.log(error);
+    //         });
+    // }, [])
 
-    useEffect(() => {
+    // useEffect(() => {
 
-        if (cityName) {
-            axios(`https://api.openweathermap.org/data/2.5/weather?appid=ec6531490be8447c526f8350ffc1e879&q=${cityName ? cityName : 'jordan'}`)
-                .then(function (response) {
-                    console.log(response.data);
-                    setCityData(response.data);
-                })
-                .catch(function (error) {
-                    console.log(error);
-                });
-        }
-    }, [cityName])
+    //     if (cityName) {
+    //         axios(`https://api.openweathermap.org/data/2.5/weather?appid=ec6531490be8447c526f8350ffc1e879&q=${cityName ? cityName : 'jordan'}`)
+    //             .then(function (response) {
+    //                 console.log(response.data);
+    //                 setCityData(response.data);
+    //             })
+    //             .catch(function (error) {
+    //                 console.log(error);
+    //             });
+    //     }
+    // }, [cityName])
 
     // const celsiusTemp = (cityData.main.temp - 273.15).toFixed(2);
     // console.log(cityData.name);
@@ -63,9 +63,9 @@ const CurrentWeather = (props) => {
                     <MDBRow className="justify-content-center align-items-center h-100">
                         <MDBCol md="8" lg="6" xl="4">
                             <MDBCard className="mt-4" style={{ color: "#4B515D", borderRadius: "35px", marginBottom: '93px' }}>
-                                <MDBCardBody style={{ backgroundColor: 'rgb(38, 84, 175)', borderRadius: '5px' }} className="p-4">
+                                <MDBCardBody style={{ backgroundColor: '#ffffff', borderRadius: '35px'}} className="p-4">
                                     <div id="add-flex" className="d-flex ">
-                                        <MDBTypography id="head-text" style={{ display: 'inline' }} className="flex-grow-1 text-light">
+                                        <MDBTypography id="head-text" style={{ display: 'inline' }} className="flex-grow-1 text-dark">
                                             {cityData.name}
                                         </MDBTypography>
                                     </div>
@@ -77,7 +77,7 @@ const CurrentWeather = (props) => {
                                             style={{ color: "#1C2331" }}>
                                             {(cityData.main.temp - 273.15).toFixed()}°C
                                         </MDBTypography>
-                                        <span className="small text-light" style={{ color: "#868B94" }}>
+                                        <span className="small text-dark" style={{ color: "#868B94" }}>
                                             {cityData.weather[0].main}
                                         </span>
                                     </div>
@@ -90,33 +90,33 @@ const CurrentWeather = (props) => {
                                                     <MDBIcon
                                                         fas
                                                         icon="robot"
-                                                        style={{ color: "#ffffff" }}
+                                                        style={{ color: "#000000" }}
                                                     />{" "}
-                                                    <span className="ms-1 text-light">feels Like : {(cityData.main.feels_like - 273.15).toFixed(1)}°C</span>
+                                                    <span className="ms-1 text-dark">feels Like : {(cityData.main.feels_like - 273.15).toFixed(1)}°C</span>
                                                 </div>
                                                 <div style={{ width: '200px', textAlign: 'left' }}>
                                                     <MDBIcon
                                                         fas
                                                         icon="wind fa-fw"
-                                                        style={{ color: "#ffffff" }}
+                                                        style={{ color: "#000000" }}
                                                     />{" "}
-                                                    <span className="ms-1 text-light">winds :{cityData.wind.speed} km/h</span>
+                                                    <span className="ms-1 text-dark">winds :{cityData.wind.speed} km/h</span>
                                                 </div>
                                                 <div style={{ width: '200px', textAlign: 'left' }}>
                                                     <MDBIcon
                                                         fas
                                                         icon="tint fa-fw"
-                                                        style={{ color: "#ffffff" }}
+                                                        style={{ color: "#000000" }}
                                                     />{" "}
-                                                    <span className="ms-1 text-light">humidity : {cityData.main.humidity}% </span>
+                                                    <span className="ms-1 text-dark">humidity : {cityData.main.humidity}% </span>
                                                 </div>
                                                 <div style={{ width: '200px', textAlign: 'left' }}>
                                                     <MDBIcon
                                                         fas
                                                         icon="thermometer"
-                                                        style={{ color: "#ffffff" }}
+                                                        style={{ color: "#000000" }}
                                                     />{" "}
-                                                    <span className="ms-1 text-light">Pressure : {cityData.main.pressure}millibars </span>
+                                                    <span className="ms-1 text-dark">Pressure : {cityData.main.pressure}millibars </span>
                                                 </div>
 
                                             </div>
@@ -127,7 +127,9 @@ const CurrentWeather = (props) => {
                                         </div>
                                     </div>
                                 </MDBCardBody>
-                                <MDBBtn tag="a" href={`forecast/${cityData.name}`} className="stretched-link mt-3 p-2"><MDBTypography className="d-inline fs-6">Weather for 7 days</MDBTypography></MDBBtn>
+                                <div>
+                                <MDBBtn tag="a" href={`forecast/${cityData.name}`} className="stretched-link mt-3 mb-3 w-50 p-2"><MDBTypography className="d-inline fs-6">Weather for 7 days</MDBTypography></MDBBtn>
+                                </div>
                             </MDBCard>
                         </MDBCol>
                     </MDBRow>

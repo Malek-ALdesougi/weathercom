@@ -1,7 +1,7 @@
 import Search from "./Search";
 import CurrentWeather from "./CurrentWeather";
 import { createContext, useState } from "react";
-import './style.css'
+import '../Components/styles/style.css'
 
 
 
@@ -23,7 +23,7 @@ const Home = () => {
 
     return (
         <div>
-            <h1>HOme page</h1>
+            <h1 className="mt-2">Welcome To WeatherCom</h1>
             <CityName.Provider value={searchData}>
                 <Search onSearchChange={handleonSearchChange} />
                 <CurrentWeather country={searchData} />

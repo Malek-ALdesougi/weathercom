@@ -1,4 +1,4 @@
-import './style.css'
+import '../Components/styles/style.css'
 import { AsyncPaginate } from 'react-select-async-paginate';
 import { useState } from 'react';
 // import { GEO_API_URL, geoApiOptions } from '../api';
