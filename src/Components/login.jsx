@@ -5,7 +5,7 @@ import ReactJsAlert from "reactjs-alert"
 
 
 
-const Login = (logStatus) => {
+const Login = ({logStatus}) => {
 
     const [userLoginData, setUserLoginData] = useState({
         email: '',
@@ -34,6 +34,7 @@ const Login = (logStatus) => {
         if (isRegistered){
             console.log('after if its true ');
             localStorage.setItem('loggedin', true);
+            logStatus()
             navigate('/');
         }else{
             console.log('its false');
@@ -45,7 +46,6 @@ const Login = (logStatus) => {
     }
 
     return (
-
         <>
             <div className="container login-container col-md-4">
                 <div className="login-container d-flex justify-content-center">
@@ -74,16 +74,14 @@ const Login = (logStatus) => {
                                 value={userLoginData.password}
                                 onChange={(e) => setUserLoginData({
                                     ...userLoginData, [e.target.name]: e.target.value
-                                })}
-                            />
+                                })}/>
                         </div>
                         <div className="mb-3">
                             <div className="custom-control custom-checkbox">
                                 <input
                                     type="checkbox"
                                     className="custom-control-input"
-                                    id="customCheck1"
-                                />
+                                    id="customCheck1"/>
                                 <label className="custom-control-label" htmlFor="customCheck1">
                                     Remember me
                                 </label>

@@ -13,16 +13,18 @@ import { Link } from 'react-router-dom';
 import LoginButton from './loginButton';
 import LogoutButton from './logoutButton';
 
-function Header(props) {
+function Header({userStatus}) {
   const [showNavColor, setShowNavColor] = useState(false);
-  // const [showNavColorSecond, setShowNavColorSecond] = useState(false);
-  // const [showNavColorThird, setShowNavColorThird] = useState(false);
 
- console.log(props.userStatus);
+//  console.log(props.userStatus);
+
+  const status = JSON.parse(localStorage.getItem('loggedin'));
+
+  console.log(status);
   
   return (
     <>
-      <MDBNavbar expand='lg' dark bgColor='primary'>
+      <MDBNavbar className='align-items-center' expand='lg' dark bgColor='primary'>
         <MDBContainer >
           <MDBNavbarBrand className='fw-bolder fs-4' href='/'>WeatherCom</MDBNavbarBrand>
           <MDBNavbarToggler
@@ -36,7 +38,7 @@ function Header(props) {
             <MDBIcon icon='bars' fas />
           </MDBNavbarToggler>
           <MDBCollapse show={showNavColor} navbar>
-            <MDBNavbarNav className='me-auto mb-2 mb-lg-0'>
+            <MDBNavbarNav className='me-auto mb-2 mb-lg-0 align-items-center'>
               <MDBNavbarItem className='active'>
                 <Link to='/' className='text-light p-3' aria-current='page'>Home</Link>
               </MDBNavbarItem>
@@ -52,8 +54,10 @@ function Header(props) {
 
               <MDBContainer className='d-flex justify-content-end'>
                 <MDBNavbarItem>
+                  {status ?
+                  <LogoutButton/>:
                   <LoginButton />
-                  <LogoutButton />
+                  }
                 </MDBNavbarItem>
               </MDBContainer>
             </MDBNavbarNav>

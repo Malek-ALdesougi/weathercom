@@ -20,16 +20,16 @@ const Forecast = () => {
 
     const [forecastData, setForecastData] = useState([]);
 
-    // useEffect(() => {
+    useEffect(() => {
 
-    //     axios.get(`https://api.openweathermap.org/data/2.5/forecast?appid=ec6531490be8447c526f8350ffc1e879&q=${name}&units=metric`)
-    //         .then((response) => {
-    //             console.log(response);
-    //             setForecastData(response.data.list.splice(0, 7));
-    //         })
-    //         .catch((err) => console.log(err))
+        axios.get(`https://api.openweathermap.org/data/2.5/forecast?appid=ec6531490be8447c526f8350ffc1e879&q=${name}&units=metric`)
+            .then((response) => {
+                console.log(response);
+                setForecastData(response.data.list.splice(0, 7));
+            })
+            .catch((err) => console.log(err))
 
-    // }, [name])
+    }, [name])
 
     console.log(forecastData);
 

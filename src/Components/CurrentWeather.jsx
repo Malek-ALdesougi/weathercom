@@ -23,31 +23,31 @@ const CurrentWeather = (props) => {
     const [cityData, setCityData] = useState([]);
 
 
-    // useEffect(() => {
+    useEffect(() => {
 
-    //     axios(`https://api.openweathermap.org/data/2.5/weather?appid=ec6531490be8447c526f8350ffc1e879&q=jordan`)
-    //         .then(function (response) {
-    //             console.log(response.data);
-    //             setCityData(response.data);
-    //         })
-    //         .catch(function (error) {
-    //             console.log(error);
-    //         });
-    // }, [])
+        axios(`https://api.openweathermap.org/data/2.5/weather?appid=ec6531490be8447c526f8350ffc1e879&q=jordan`)
+            .then(function (response) {
+                console.log(response.data);
+                setCityData(response.data);
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+    }, [])
 
-    // useEffect(() => {
+    useEffect(() => {
 
-    //     if (cityName) {
-    //         axios(`https://api.openweathermap.org/data/2.5/weather?appid=ec6531490be8447c526f8350ffc1e879&q=${cityName ? cityName : 'jordan'}`)
-    //             .then(function (response) {
-    //                 console.log(response.data);
-    //                 setCityData(response.data);
-    //             })
-    //             .catch(function (error) {
-    //                 console.log(error);
-    //             });
-    //     }
-    // }, [cityName])
+        if (cityName) {
+            axios(`https://api.openweathermap.org/data/2.5/weather?appid=ec6531490be8447c526f8350ffc1e879&q=${cityName ? cityName : 'jordan'}`)
+                .then(function (response) {
+                    console.log(response.data);
+                    setCityData(response.data);
+                })
+                .catch(function (error) {
+                    console.log(error);
+                });
+        }
+    }, [cityName])
 
     // const celsiusTemp = (cityData.main.temp - 273.15).toFixed(2);
     // console.log(cityData.name);

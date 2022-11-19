@@ -18,14 +18,12 @@ function App() {
  const [userStatus, setUserStatus] = useState(true);
 
  const logStatus = () => {
-
-  setUserStatus(true);
-  
+  setUserStatus(!userStatus);
 }
 
   return (
     <div className="App">
-      <Header userStatus={userStatus}/>
+      <Header userStatus={logStatus}/>
       <Routes>
         <Route path="/" element={<ProtectedRoutes />}>
           <Route path="/" element={<Home />} />
