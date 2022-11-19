@@ -1,11 +1,11 @@
 import { useState } from 'react';
 import '../Components/styles/login.css'
-import { useNavigate } from 'react-router-dom';
+import { Navigate, useNavigate } from 'react-router-dom';
 import ReactJsAlert from "reactjs-alert"
 
 
 
-const Login = ({logStatus}) => {
+const Login = ({ logStatus }) => {
 
     const [userLoginData, setUserLoginData] = useState({
         email: '',
@@ -14,7 +14,7 @@ const Login = ({logStatus}) => {
     const [status, setStatus] = useState(false);
     const [type, setType] = useState("error");
     const [title, setTitle] = useState("Email or Password is not correct!! please try again");
-    const navigate = useNavigate();
+    const navigate = useNavigate();  
 
     //Handel login
     const handelLogin = (e) => {
@@ -23,7 +23,7 @@ const Login = ({logStatus}) => {
         const localDataLogin = JSON.parse(localStorage.getItem('users')) ? JSON.parse(localStorage.getItem('users')) : [];
 
         //check email and  password are not empty
-        if(userLoginData.email === '' || userLoginData.password === ''){
+        if (userLoginData.email === '' || userLoginData.password === '') {
             return setStatus(true);
         }
         // check email and password are exist 
@@ -31,18 +31,15 @@ const Login = ({logStatus}) => {
 
         console.log(isRegistered);
 
-        if (isRegistered){
+        if (isRegistered) {
             console.log('after if its true ');
             localStorage.setItem('loggedin', true);
             logStatus()
-            navigate('/');
-        }else{
+            navigate('/', { replace: true });
+        } else {
             console.log('its false');
             return setStatus(true)
         }
-
-        //the best practice for this situation is to let the home page as the default page of the  webiste
-
     }
 
     return (
@@ -74,14 +71,14 @@ const Login = ({logStatus}) => {
                                 value={userLoginData.password}
                                 onChange={(e) => setUserLoginData({
                                     ...userLoginData, [e.target.name]: e.target.value
-                                })}/>
+                                })} />
                         </div>
                         <div className="mb-3">
                             <div className="custom-control custom-checkbox">
                                 <input
                                     type="checkbox"
                                     className="custom-control-input"
-                                    id="customCheck1"/>
+                                    id="customCheck1" />
                                 <label className="custom-control-label" htmlFor="customCheck1">
                                     Remember me
                                 </label>

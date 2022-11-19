@@ -1,9 +1,15 @@
-import { Outlet, Navigate } from "react-router-dom";
+import { Outlet, Navigate, useNavigate } from "react-router-dom";
 
 
-const ProtectedRoutes = () => {
+const ProtectedRoutes = ({ children }) => {
     const auth = localStorage.getItem('loggedin');
-    return auth ? <Outlet /> : <Navigate to={"/login"}/> ;
+    const navigate = useNavigate();
+
+    if (!auth) {
+        return <Navigate to='/login' />
+    }
+
+    return children;
 }
 
 

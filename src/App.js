@@ -25,9 +25,9 @@ function App() {
     <div className="App">
       <Header userStatus={logStatus}/>
       <Routes>
-        <Route path="/" element={<ProtectedRoutes />}>
-          <Route path="/" element={<Home />} />
-        </Route>
+        {/* <Route path="/" element={<ProtectedRoutes />}> */}
+          <Route path="/" element={<ProtectedRoutes><Home /></ProtectedRoutes>} />
+        {/* </Route> */}
         <Route path="forecast/:name" element={<Forecaste />} />
         <Route path="about" element={<About />} />
         <Route path="contact" element={<Contact />} />
