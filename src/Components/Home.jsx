@@ -23,7 +23,7 @@ const Home = () => {
 
     return (
         <div>
-            <h1 className="mt-2">Welcome To WeatherCom</h1>
+            <h3 className="mt-">Welcome To WeatherCom</h3>
             <CityName.Provider value={searchData}>
                 <Search onSearchChange={handleonSearchChange} />
                 <CurrentWeather country={searchData} />

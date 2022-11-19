@@ -1,9 +1,10 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 // import './style.css'
 import { Accordion, AccordionItem, AccordionItemButton, AccordionItemHeading, AccordionItemPanel } from 'react-accessible-accordion';
 import '../Components/styles/forecast.css'
+import { MDBBtn } from 'mdb-react-ui-kit';
 
 const weekDays = ['Monday', 'Tusday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
 
@@ -36,7 +37,8 @@ const Forecast = () => {
     return (
 
         <>
-            <label className='title'>Daily</label>
+            <label className='title'>Daily</label><br></br>
+            <Link to={'/'}><MDBBtn>Back</MDBBtn></Link>
             <Accordion allowMultipleExpanded>
                 {forecastData.map((item, index) => (
                     <AccordionItem key={index}>
