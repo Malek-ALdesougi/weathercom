@@ -1,14 +1,28 @@
-import React from 'react';
+import { React, useEffect } from 'react';
+import { gapi } from "gapi-script";
+
 
 import { GoogleLogin } from 'react-google-login';
 // refresh token
 // import { refreshTokenSetup } from '../utils/refreshToken';
-import {refreshTokenSetup} from './refreshToken' 
+import { refreshTokenSetup } from './refreshToken'
 
 const clientId =
   '902898062155-a1m445ou1bo512ekubiktfhdl1ej4nt5.apps.googleusercontent.com';
 
 function LoginGoogle() {
+
+  useEffect(() => {
+    const initClient = () => {
+      gapi.client.init({
+        clientId: clientId,
+        scope: "",
+      });
+    };
+    gapi.load("client:auth2", initClient);
+  });
+
+
   const onSuccess = (res) => {
     console.log('Login Success: currentUser:', res.profileObj);
     alert(
@@ -32,7 +46,7 @@ function LoginGoogle() {
         onSuccess={onSuccess}
         onFailure={onFailure}
         cookiePolicy={'single_host_origin'}
-        style={{ marginTop: '100px', color:'red', backgroundColor:'red' }}
+        style={{ marginTop: '100px', color: 'red', backgroundColor: 'red' }}
         isSignedIn={true}
       />
     </div>
