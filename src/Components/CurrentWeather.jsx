@@ -63,7 +63,7 @@ const CurrentWeather = (props) => {
             .catch(function (error) {
                 console.log(error);
             });
-    }, [])
+    },[])
 
     useEffect(() => {
 

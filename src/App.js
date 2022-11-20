@@ -11,6 +11,8 @@ import Contact from "./Components/contact";
 import Login from "./Components/login";
 import Register from "./Components/register";
 import ProtectedRoutes from "./services/protectedRoute";
+// import LoginGoogle from './Components/Google/login';
+// import Logout from './Components/Google/logout';
 
 
 
@@ -24,6 +26,9 @@ function App() {
   return (
     <div className="App">
       <Header userStatus={logStatus}/>
+      {/* <Logout /> */}
+      
+
       <Routes>
         {/* <Route path="/" element={<ProtectedRoutes />}> */}
           <Route path="/" element={<ProtectedRoutes><Home /></ProtectedRoutes>} />
