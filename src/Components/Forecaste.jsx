@@ -8,7 +8,7 @@ import { MDBBtn } from 'mdb-react-ui-kit';
 
 const weekDays = ['Monday', 'Tusday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
 
-
+// const favArray = [];
 
 const Forecast = () => {
 
@@ -32,13 +32,21 @@ const Forecast = () => {
 
     }, [name])
 
+    const handelFav = () => {
+        const fav = name;
+        const items = JSON.parse(localStorage.getItem('fav')) || [];
+        items.push(fav);
+
+        localStorage.setItem('fav', JSON.stringify(items))
+
+    }
+
     console.log(forecastData);
 
     return (
 
         <>
             <label className='title'>Daily</label><br></br>
-            <Link to={'/'}><MDBBtn>Back</MDBBtn></Link>
             <Accordion allowMultipleExpanded>
                 {forecastData.map((item, index) => (
                     <AccordionItem key={index}>
@@ -59,33 +67,37 @@ const Forecast = () => {
                                 <div className='daily-grid col-md-6'>
                                     <div className='div1'>
                                         <div className='d-flex justify-content-around'>
-                                        <p className='text-light' style={{display: 'inline'}}>Pressure</p><span className='text-light'>{item.main.pressure}hPa</span>
+                                            <p className='text-light' style={{ display: 'inline' }}>Pressure</p><span className='text-light'>{item.main.pressure}hPa</span>
                                         </div>
                                         <div className='d-flex justify-content-around'>
-                                        <p className='text-light' style={{display: 'inline'}}>Clouds</p><span className='text-light'>{item.clouds.all}%</span>
+                                            <p className='text-light' style={{ display: 'inline' }}>Clouds</p><span className='text-light'>{item.clouds.all}%</span>
                                         </div>
                                         <div className='d-flex justify-content-around'>
-                                        <p className='text-light' style={{display: 'inline'}}>Sea Level</p><span className='text-light'>{item.main.sea_level}m</span>
+                                            <p className='text-light' style={{ display: 'inline' }}>Sea Level</p><span className='text-light'>{item.main.sea_level}m</span>
                                         </div>
-                                        
+
                                     </div>
                                     <div className='div2'>
-                                    <div className='d-flex justify-content-around'>
-                                        <p className='text-light' style={{display: 'inline'}}>Humidity</p><span className='text-light'>{item.main.humidity}%</span>
+                                        <div className='d-flex justify-content-around'>
+                                            <p className='text-light' style={{ display: 'inline' }}>Humidity</p><span className='text-light'>{item.main.humidity}%</span>
                                         </div>
                                         <div className='d-flex justify-content-around'>
-                                        <p className='text-light' style={{display: 'inline'}}>Wind speed</p><span className='text-light'>{item.wind.speed}m/s</span>
+                                            <p className='text-light' style={{ display: 'inline' }}>Wind speed</p><span className='text-light'>{item.wind.speed}m/s</span>
                                         </div>
                                         <div className='d-flex justify-content-around'>
-                                        <p className='text-light' style={{display: 'inline'}}>Feels like</p><span className='text-light'>{item.main.feels_like}°C</span>
+                                            <p className='text-light' style={{ display: 'inline' }}>Feels like</p><span className='text-light'>{item.main.feels_like}°C</span>
                                         </div>
                                     </div>
+
                                 </div>
                             </div>
 
                         </AccordionItemPanel>
                     </AccordionItem>
                 ))}
+                <Link to={'/'}><MDBBtn className='bg-light text-dark fs-6'>Back</MDBBtn></Link>
+                <MDBBtn onClick={handelFav} className='bg-warning text-dark fs-6 ms-5'>Add favoaite</MDBBtn>
+
             </Accordion>
 
         </>

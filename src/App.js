@@ -11,6 +11,7 @@ import Contact from "./Components/contact";
 import Login from "./Components/login";
 import Register from "./Components/register";
 import ProtectedRoutes from "./services/protectedRoute";
+import Profile from "./Components/profile";
 // import LoginGoogle from './Components/Google/login';
 // import Logout from './Components/Google/logout';
 
@@ -38,6 +39,7 @@ function App() {
         <Route path="contact" element={<Contact />} />
         <Route path="/register" element={<Register />} />
         <Route path="login" element={<Login logStatus={logStatus}/>} />
+        <Route path="profile" element={<Profile />}/>
       </Routes>
       <Footer />
     </div>

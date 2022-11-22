@@ -52,6 +52,12 @@ function Header({userStatus}) {
                 <Link className='text-light p-3' to={'contact'}>Contact</Link>
               </MDBNavbarItem>
 
+              {status ? 
+              <MDBNavbarItem>
+                <Link className='text-light p-3' to={'profile'}> <MDBIcon className='d-inline me-2' fas icon="user-circle" />Profile</Link>
+              </MDBNavbarItem>
+              :'' }
+
               <MDBContainer className='d-flex justify-content-end'>
                 <MDBNavbarItem>
                   {status ?

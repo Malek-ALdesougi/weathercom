@@ -3,7 +3,12 @@ import '../Components/styles/login.css'
 import { useNavigate } from 'react-router-dom';
 import ReactJsAlert from "reactjs-alert"
 
+// const user = {firstName :'malek', lastName :'saleh', registerEmail :'malek@yahoo.com', registerPassword :'123'};
 
+// localStorage.setItem('users', JSON.stringify(user))
+
+// localStorage.setItem('loggedin', true)
+const array = JSON.parse(localStorage.getItem('users')) || [];
 
 const Register = () => {
 
@@ -20,7 +25,6 @@ const Register = () => {
     const [type, setType] = useState("error");
     const [title, setTitle] = useState("All fileds are requierd! ");
 
-    const array = JSON.parse(localStorage.getItem('users')) || [];
 
     //On submit for the REGISTER form ------>       
     const handelRegisterSumbit = (e) => {

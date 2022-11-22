@@ -3,6 +3,7 @@ import '../Components/styles/login.css'
 import { Navigate, useNavigate } from 'react-router-dom';
 import ReactJsAlert from "reactjs-alert"
 import LoginGoogle from '../Components/Google/login';
+import '../Components/styles/login.css'
 
 
 
@@ -50,9 +51,9 @@ const Login = ({ logStatus }) => {
                 <div className="login-container d-flex justify-content-center">
                     <form onSubmit={handelLogin} method='get' className='col-md-8 text-start mt-2'>
                         <h3>Sign In</h3> <div className='d-flex justify-content-center'>
-                        <LoginGoogle />
+                        <LoginGoogle/>
                         </div>
-                        <h3 className='text-center mt-3'>OR</h3>
+                        <h4 className='text-center mt-3'>OR</h4>
                         <div className="mb-3">
                             <label>Email address</label>
                             <input

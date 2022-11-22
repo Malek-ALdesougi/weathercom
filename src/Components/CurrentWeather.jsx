@@ -94,11 +94,11 @@ const CurrentWeather = (props) => {
                             <MDBCard className="mt-1" style={{ color: "#4B515D", borderRadius: "35px", marginBottom: '93px' }}>
                                 <MDBCardBody style={{ backgroundColor: '#ffffff', borderRadius: '35px' }} className="p-4">
                                     <div id="add-flex" className="d-flex ">
-                                        <MDBTypography id="head-text" style={{ display: 'inline' }} className="flex-grow-1 text-dark">
-                                            {cityData.name}
+                                        <MDBTypography id="head-text" style={{ display: 'inline', fontFamily:'monospace' }} className="flex-grow-1 text-dark fs-5 fw-bolder">
+                                            {cityData.name} {/*<span><MDBIcon fas icon="heart" /></span>*/}
                                         </MDBTypography>
                                     </div>
-                                    <div className="d-flex flex-column text-center mt-5 mb-4">
+                                    <div className="d-flex flex-column text-center mt-3 mb-4">
                                         <MDBTypography
                                             tag="h6"
                                             className="display-4 mb-0 font-weight-bold "
@@ -137,13 +137,13 @@ const CurrentWeather = (props) => {
                                                     />{" "}
                                                     <span className="ms-1 text-dark">humidity : {cityData.main.humidity}% </span>
                                                 </div>
-                                                <div style={{ width: '200px', textAlign: 'left' }}>
+                                                <div style={{ width: '210px', textAlign: 'left' }}>
                                                     <MDBIcon
                                                         fas
                                                         icon="thermometer"
                                                         style={{ color: "#000000" }}
                                                     />{" "}
-                                                    <span className="ms-1 text-dark">Pressure : {cityData.main.pressure}millibars </span>
+                                                    <span className="ms-1 text-dark">Pressure : {cityData.main.pressure}-millibars </span>
                                                 </div>
 
                                             </div>
